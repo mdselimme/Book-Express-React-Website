@@ -5,7 +5,7 @@ import "./Header.css";
 const Header = () => {
     return (
         <div className="container mx-auto py-10">
-            <div className="navbar">
+            <div className="navbar nav-box rounded-2xl py-5 px-3">
             <div className="navbar-start">
                 <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -55,8 +55,8 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="mr-5 bg-[#EC669F] text-white py-2 rounded-lg px-6 font-semibold">Sign Up</Link>
-                <Link className="bg-[#7F5DF6] text-white py-2 rounded-lg px-6 font-semibold">Log In</Link>
+                <Link to={'/signin'} className="mr-5 bg-[#EC669F] text-white py-2 rounded-lg px-6 font-semibold">Sign Up</Link>
+                <Link to={'/login'} className="bg-[#7F5DF6] text-white py-2 rounded-lg px-6 font-semibold">Log In</Link>
             </div>
             </div>
         </div>

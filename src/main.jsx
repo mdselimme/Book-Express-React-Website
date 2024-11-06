@@ -6,6 +6,9 @@ import Root from './Root/Root.jsx'
 import PageToRead from './components/PageToRead/PageToRead.jsx'
 import ListedBooks from './components/ListedBooks/ListedBooks.jsx'
 import Home from './components/Home/Home.jsx'
+import ContactUs from './components/ContactUs/ContactUs.jsx'
+import LogIn from './components/AuthenTication/LogIn/LogIn.jsx'
+import SignIn from './components/AuthenTication/SignIn/SignIn.jsx'
 
 
 
@@ -25,16 +28,22 @@ const router = createBrowserRouter([
       {
         path:"/pagetoread",
         element: <PageToRead></PageToRead>,
+      },
+      {
+        path:"/contactus",
+        element: <ContactUs></ContactUs>,
       }
     ] 
   },
   {
     path: "/login",
+    element: <LogIn></LogIn>,
   },
   {
     path: "/signin",
+    element: <SignIn></SignIn>,
   }
-])
+]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
