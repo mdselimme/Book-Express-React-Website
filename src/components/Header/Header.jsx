@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import "./Header.css";
 
 
 const Header = () => {
@@ -25,34 +26,37 @@ const Header = () => {
                     tabIndex={0}
                     className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                     <li>
-                        <NavLink to={'/'}>Home</NavLink>
+                        <NavLink className="text-lg font-medium text-[#010001] hover:text-[#000000] hover:bg-none" to={'/'}>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/listedbooks'}>Listed Books</NavLink>
+                        <NavLink className="text-lg font-medium text-[#010001] hover:text-[#000000] hover:bg-none" to={'/listedbooks'}>Listed Books</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/pagetoread'}>Page to Read</NavLink>
+                        <NavLink className="text-lg font-medium text-[#010001] hover:text-[#000000] hover:bg-none" to={'/pagetoread'}>Page to Read</NavLink>
                     </li>
                 </ul>
                 </div>
-                <Link to={'/'} className="text-2xl lg:text-4xl">Book<span>Express</span></Link>
+                <Link to={'/'} className="text-2xl lg:text-4xl text-[#010001] font-extrabold">Book.<span className="text-[#EC669F]">Express</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                 <li>
-                        <NavLink to={'/'}>Home</NavLink>
+                        <NavLink className="text-lg font-normal text-[#010001] hover:text-[#000000] hover:bg-none" to={'/'}>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/listedbooks'}>Listed Books</NavLink>
+                        <NavLink className="text-lg font-normal text-[#010001] hover:text-[#000000] hover:bg-none" to={'/listedbooks'}>Listed Books</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/pagetoread'}>Page to Read</NavLink>
+                        <NavLink className="text-lg font-normal text-[#010001] hover:text-[#000000] hover:bg-none" to={'/pagetoread'}>Page to Read</NavLink>
+                    </li>
+                    <li>
+                        <NavLink className="text-lg font-normal text-[#010001] hover:text-[#000000] hover:bg-none" to={'/contactus'}>Contact Us</NavLink>
                     </li>
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="mr-5">Sign Up</Link>
-                <Link>Log In</Link>
+                <Link className="mr-5 bg-[#EC669F] text-white py-2 rounded-lg px-6 font-semibold">Sign Up</Link>
+                <Link className="bg-[#7F5DF6] text-white py-2 rounded-lg px-6 font-semibold">Log In</Link>
             </div>
             </div>
         </div>
