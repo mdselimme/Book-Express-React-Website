@@ -55,8 +55,8 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to={'/signin'} className="mr-5 bg-[#EC669F] text-white py-2 rounded-lg px-6 font-semibold">Sign Up</Link>
-                <Link to={'/login'} className="bg-[#7F5DF6] text-white py-2 rounded-lg px-6 font-semibold">Log In</Link>
+                <Link to={'/signin'} className="mr-5 bg-[#EC669F] text-white py-2 rounded-full px-6 font-semibold">Sign Up</Link>
+                <Link to={'/login'} className="bg-[#7F5DF6] text-white py-2 rounded-full px-6 font-semibold">Log In</Link>
             </div>
             </div>
         </div>
