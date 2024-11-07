@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Book from "./Book/Book";
+import { Link } from "react-router-dom";
+
 
 
 const Books = () => {
@@ -19,8 +21,11 @@ const Books = () => {
             <div>
                 <div className="grid grid-cols-3 gap-10 justify-between">
                     {
-                        booksData.map((book)=> <Book key={book.bookId} book={book}></Book>)
+                        booksData.slice(0,6).map((book)=> <Book key={book.bookId} book={book}></Book>)
                     }
+                </div>
+                <div className="text-center mt-10">
+                <Link className="bg-[#7F5DF6] text-white py-5 rounded-full px-16 font-semibold">See All Books </Link>
                 </div>
             </div>
         </div>
