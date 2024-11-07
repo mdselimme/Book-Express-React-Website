@@ -9,6 +9,7 @@ import Home from './components/Home/Home.jsx'
 import ContactUs from './components/ContactUs/ContactUs.jsx'
 import LogIn from './components/AuthenTication/LogIn/LogIn.jsx'
 import SignIn from './components/AuthenTication/SignIn/SignIn.jsx'
+import BookDetails from './components/Home/Books/Book/BookDetails/BookDetails.jsx'
 
 
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path:"/contactus",
         element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/bookdetails/:bookId",
+        element: <BookDetails></BookDetails>
       }
     ] 
   },
