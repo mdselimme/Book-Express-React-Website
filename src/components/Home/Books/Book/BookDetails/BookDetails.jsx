@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { getDbData, giveMainData } from "../../../../../DbData/DbData";
+import { Bounce, Slide, toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const BookDetails = () => {
   const [singleBook, setSingleBook] = useState({});
-  const [status, setStatus] = useState(false);
 
   const loader = useLoaderData();
   const { bookId } = useParams();
@@ -27,13 +28,42 @@ const BookDetails = () => {
     yearOfPublishing,
   } = singleBook;
 
+  const notifyToast = (val) => {
+    if(val){
+      toast.success('Added Successfully', {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Slide,
+        });
+    }else{
+      toast.error('Already Added', {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Slide,
+        });
+    }
+  };
+
   const handleSaveReadData = (id) => {
     const data = getDbData("read");
     const bookData = data.find((bookD) => bookD.bookId == id.bookId);
     if (bookData) {
-      setStatus(true);
+      notifyToast(false);
     } else {
       giveMainData("read", id);
+      notifyToast(true);
     }
   };
 
@@ -44,21 +74,16 @@ const BookDetails = () => {
     const bookData = data.find((bookD) => bookD.bookId == id.bookId);
     const whislistData = whisData.find((bookD) => bookD.bookId == id.bookId);
     if (bookData || whislistData) {
-      setStatus(true);
+      notifyToast(false);
     } else {
       giveMainData("whislist", id);
+      notifyToast(true);
     }
   };
 
   return (
     <div className="container shadow-2xl mb-10 mx-auto p-8">
-      {status && (
-        <div className="toast toast-top toast-end z-10">
-          <div className="alert alert-success">
-            <span>Message sent successfully.</span>
-          </div>
-        </div>
-      )}
+
       <div className="card lg:card-side bg-base-100">
         <figure className="w-1/2">
           <img
@@ -128,6 +153,7 @@ const BookDetails = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
