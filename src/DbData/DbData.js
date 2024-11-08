@@ -1,21 +1,21 @@
 
-const getDbData = () => {
-    const readData = localStorage.getItem("read");
+const getDbData = (val) => {
+    const readData = localStorage.getItem(val);
     if(readData){
         return JSON.parse(readData);
     }
     return [];
 };
 
-const saveDbData = id => {
+const saveDbData = (val , id) => {
     const data = JSON.stringify(id);
-    localStorage.setItem("read", data);
+    localStorage.setItem(val, data);
 };
 
-const giveMainData = id => {
-    const dbData = getDbData();
+const giveMainData = (val,id) => {
+    const dbData = getDbData(val);
     dbData.push(id);
-    saveDbData(dbData);
+    saveDbData(val ,dbData);
 };
 
 
