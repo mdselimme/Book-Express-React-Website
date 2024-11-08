@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { getDbData, giveMainData } from "../../../../../DbData/DbData";
-import { Bounce, Slide, toast, ToastContainer } from "react-toastify";
+import { Slide, toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const BookDetails = () => {
@@ -28,11 +28,11 @@ const BookDetails = () => {
     yearOfPublishing,
   } = singleBook;
 
-  const notifyToast = (val) => {
+  const notifyToast = (val, message) => {
     if(val){
-      toast.success('Added Successfully', {
+      toast.success(`Added Succesfully ${message}`, {
         position: "top-right",
-        autoClose: 1000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -42,9 +42,9 @@ const BookDetails = () => {
         transition: Slide,
         });
     }else{
-      toast.error('Already Added', {
+      toast.error(`Already Added ${message}`, {
         position: "top-right",
-        autoClose: 1000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -60,24 +60,26 @@ const BookDetails = () => {
     const data = getDbData("read");
     const bookData = data.find((bookD) => bookD.bookId == id.bookId);
     if (bookData) {
-      notifyToast(false);
+      notifyToast(false, "reading");
     } else {
       giveMainData("read", id);
-      notifyToast(true);
+      notifyToast(true, "reading");
     }
   };
 
   const handleWhishList = (id) => {
     const data = getDbData("read");
     const whisData = getDbData("whislist");
-    console.log(whisData);
     const bookData = data.find((bookD) => bookD.bookId == id.bookId);
     const whislistData = whisData.find((bookD) => bookD.bookId == id.bookId);
-    if (bookData || whislistData) {
-      notifyToast(false);
-    } else {
+    if (bookData) {
+      notifyToast(false, "reading");
+    } else if(whislistData){
+      notifyToast(false, "Whislist");
+    }
+     else {
       giveMainData("whislist", id);
-      notifyToast(true);
+      notifyToast(true, "Whislist");
     }
   };
 
