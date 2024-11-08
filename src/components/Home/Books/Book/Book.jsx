@@ -10,7 +10,7 @@ const Book = ({ book }) => {
       <div className="mb-10">
         <div className="card bg-base-100 w-full shadow-2xl">
           <figure className="px-10 pt-10">
-            <img src={image} alt="Shoes" className="rounded-xl" />
+            <img src={image} className="w-[21.5rem] h-[21.5rem] rounded-xl" alt="Shoes" />
           </figure>
           <div className="card-body items-start text-start">
             <p className="flex flex-wrap text-[0.8rem] items-center"> <strong className="font-normal">Hastags:</strong> 

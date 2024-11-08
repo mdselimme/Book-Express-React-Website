@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 
 const BookDetails = () => {
   const [singleBook, setSingleBook] = useState({});
@@ -29,7 +29,7 @@ const BookDetails = () => {
     <div className="container shadow-2xl mb-10 mx-auto p-8">
       <div className="card lg:card-side bg-base-100">
         <figure className="w-1/2">
-          <img src={image} alt="Album" />
+          <img className="w-[25.5rem] h-[25.5rem] rounded-xl" src={image} alt="Album" />
         </figure>
         <div className="card-body items-start text-start">
           <h2 className="text-5xl font-bold my-2 text-[#010001]">{bookName}</h2>
@@ -76,6 +76,10 @@ const BookDetails = () => {
               Rating : <strong className="text-[#010001]">{rating}</strong>
             </p>
           </div>
+          <div className="mt-5">
+                <Link className="mr-5 bg-[#EC669F] text-white py-4 rounded-full px-10 font-semibold">Read</Link>
+                <Link className="bg-[#7F5DF6] text-white py-4 rounded-full px-10 font-semibold">Wishlist</Link>
+            </div>
         </div>
       </div>
     </div>
