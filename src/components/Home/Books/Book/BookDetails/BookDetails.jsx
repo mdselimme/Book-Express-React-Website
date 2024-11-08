@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import { getDbData, giveMainData } from "../../../../../DbData/DbData";
 
 const BookDetails = () => {
   const [singleBook, setSingleBook] = useState({});
@@ -24,6 +25,16 @@ const BookDetails = () => {
     publisher,
     yearOfPublishing,
   } = singleBook;
+
+  const handleSaveReadData = id => {
+    const data = getDbData();
+    const bookData = data.find((bookD) => bookD.bookId == id.bookId);
+    if(bookData){
+      console.log("Allready Added Data")
+    }else{
+      giveMainData(id);
+    } 
+  };
 
   return (
     <div className="container shadow-2xl mb-10 mx-auto p-8">
@@ -77,7 +88,7 @@ const BookDetails = () => {
             </p>
           </div>
           <div className="mt-5">
-                <Link className="mr-5 bg-[#EC669F] text-white py-4 rounded-full px-10 font-semibold">Read</Link>
+                <Link onClick={()=> handleSaveReadData(singleBook)} className="mr-5 bg-[#EC669F] text-white py-4 rounded-full px-10 font-semibold">Read</Link>
                 <Link className="bg-[#7F5DF6] text-white py-4 rounded-full px-10 font-semibold">Wishlist</Link>
             </div>
         </div>
