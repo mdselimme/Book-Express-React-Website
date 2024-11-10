@@ -10,6 +10,8 @@ import ContactUs from './components/ContactUs/ContactUs.jsx'
 import LogIn from './components/AuthenTication/LogIn/LogIn.jsx'
 import SignIn from './components/AuthenTication/SignIn/SignIn.jsx'
 import BookDetails from './components/Home/Books/Book/BookDetails/BookDetails.jsx'
+import ReadingBooks from './components/ListedBooks/ReadingBooks/ReadingBooks.jsx'
+import WhishlistBooks from './components/ListedBooks/WhishlistBooks/WhishlistBooks.jsx'
 
 
 
@@ -27,9 +29,13 @@ const router = createBrowserRouter([
         element:<ListedBooks></ListedBooks>,
         children:[
           {
-            path: "/readingbooks",
-            element:
-          }
+            path: "/listedbooks/readingbooks",
+            element:<ReadingBooks></ReadingBooks>,
+          },
+          {
+            path: "/listedbooks/whishlistbooks",
+            element:<WhishlistBooks></WhishlistBooks>,
+          },
         ]
       },
       {
