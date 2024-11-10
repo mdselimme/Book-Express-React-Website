@@ -1,8 +1,16 @@
+import { useEffect } from "react";
+import { useState } from "react";
+import { getDbData } from "../../../DbData/DbData";
 
 
 const ReadingBooks = () => {
 
+    const [readingData, setReadingData] = useState([]);
 
+    useEffect(()=>{
+        const data = getDbData("read");
+        setReadingData(data);
+    },[])
 
     return (
         <div>
