@@ -39,7 +39,7 @@ const Header = () => {
                 <Link to={'/'} className="text-2xl lg:text-4xl text-[#010001] font-extrabold">Book.<span className="text-[#EC669F]">Express</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu header-menu menu-horizontal px-1">
                 <li>
                         <NavLink className="text-lg font-normal text-[#010001] hover:text-[#000000] hover:bg-none" to={'/'}>Home</NavLink>
                     </li>
