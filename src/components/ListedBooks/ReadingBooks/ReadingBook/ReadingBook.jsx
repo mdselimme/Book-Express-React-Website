@@ -1,12 +1,11 @@
-const ReadingBook = () => {
+const ReadingBook = ({ readbook }) => {
+  const { image } = readbook;
+
   return (
     <div className="my-14">
-      <div className="card lg:card-side bg-base-100 shadow-xl">
+      <div className="card lg:card-side bg-base-100 shadow-2xl">
         <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
-            alt="Album"
-          />
+          <img src={image} alt="Album" className="w-80 h-80" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">New album is released!</h2>
