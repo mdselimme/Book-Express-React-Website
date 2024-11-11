@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const ReadingBook = ({ readbook }) => {
   const { image } = readbook;
 
@@ -17,6 +19,10 @@ const ReadingBook = ({ readbook }) => {
       </div>
     </div>
   );
+};
+
+ReadingBook.propTypes = {
+  readbook: PropTypes.object.isRequired,
 };
 
 export default ReadingBook;
