@@ -1,57 +1,43 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Root from './Root/Root.jsx'
-import PageToRead from './components/PageToRead/PageToRead.jsx'
-import ListedBooks from './components/ListedBooks/ListedBooks.jsx'
-import Home from './components/Home/Home.jsx'
-import ContactUs from './components/ContactUs/ContactUs.jsx'
-import LogIn from './components/AuthenTication/LogIn/LogIn.jsx'
-import SignIn from './components/AuthenTication/SignIn/SignIn.jsx'
-import BookDetails from './components/Home/Books/Book/BookDetails/BookDetails.jsx'
-import ReadingBooks from './components/ListedBooks/ReadingBooks/ReadingBooks.jsx'
-import WhishlistBooks from './components/ListedBooks/WhishlistBooks/WhishlistBooks.jsx'
-
-
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./Root/Root.jsx";
+import PageToRead from "./components/PageToRead/PageToRead.jsx";
+import ListedBooks from "./components/ListedBooks/ListedBooks.jsx";
+import Home from "./components/Home/Home.jsx";
+import ContactUs from "./components/ContactUs/ContactUs.jsx";
+import LogIn from "./components/AuthenTication/LogIn/LogIn.jsx";
+import SignIn from "./components/AuthenTication/SignIn/SignIn.jsx";
+import BookDetails from "./components/Home/Books/Book/BookDetails/BookDetails.jsx";
 
 const router = createBrowserRouter([
   {
-    path:"/",
+    path: "/",
     element: <Root></Root>,
-    children:[
+    children: [
       {
-        path:"/",
-        element:<Home></Home>,
+        path: "/",
+        element: <Home></Home>,
       },
       {
-        path:"/listedbooks",
-        element:<ListedBooks></ListedBooks>,
-        children:[
-          {
-            path: "/listedbooks/readingbooks",
-            element:<ReadingBooks></ReadingBooks>,
-          },
-          {
-            path: "/listedbooks/whishlistbooks",
-            element:<WhishlistBooks></WhishlistBooks>,
-          },
-        ]
+        path: "/listedbooks",
+        element: <ListedBooks></ListedBooks>,
       },
       {
-        path:"/pagetoread",
+        path: "/pagetoread",
         element: <PageToRead></PageToRead>,
       },
       {
-        path:"/contactus",
+        path: "/contactus",
         element: <ContactUs></ContactUs>,
       },
       {
         path: "/bookdetails/:bookId",
         element: <BookDetails></BookDetails>,
-        loader: ()=> fetch('/books.json'),
-      }
-    ] 
+        loader: () => fetch("/books.json"),
+      },
+    ],
   },
   {
     path: "/login",
@@ -60,11 +46,11 @@ const router = createBrowserRouter([
   {
     path: "/signin",
     element: <SignIn></SignIn>,
-  }
+  },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
-)
+  </StrictMode>
+);

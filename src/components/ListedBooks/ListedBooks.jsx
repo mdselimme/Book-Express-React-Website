@@ -1,15 +1,6 @@
-import { useEffect, useState } from "react";
-import { getDbData } from "../../DbData/DbData";
 import ReadingBooks from "./ReadingBooks/ReadingBooks";
 
 const ListedBooks = () => {
-  const [readingBooks, setReadingBooks] = useState([]);
-
-  useEffect(() => {
-    const bookData = getDbData("read");
-    setReadingBooks(bookData);
-  }, []);
-
   return (
     <div className="container mx-auto py-10">
       <div role="tablist" className="tabs tabs-lifted">
@@ -24,9 +15,7 @@ const ListedBooks = () => {
           role="tabpanel"
           className="tab-content bg-base-100 border-base-300 rounded-box p-6"
         >
-          {readingBooks.map((book, idx) => (
-            <ReadingBooks key={idx} book={book}></ReadingBooks>
-          ))}
+          <ReadingBooks></ReadingBooks>
         </div>
 
         <input
