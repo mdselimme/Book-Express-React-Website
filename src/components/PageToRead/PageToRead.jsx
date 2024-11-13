@@ -1,11 +1,9 @@
-
-
 const PageToRead = () => {
-    return (
-        <div>
-            <h1>Page To Read</h1>
-        </div>
-    );
+  return (
+    <div>
+      <h1>Page to read</h1>
+    </div>
+  );
 };
 
 export default PageToRead;

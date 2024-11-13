@@ -6,7 +6,8 @@ const WhishlistBooks = () => {
   const [whishListBooks, setWhisListBooks] = useState([]);
 
   useEffect(() => {
-    const data = getDbData("read");
+    const data = getDbData("whislist");
+    console.log(data);
     setWhisListBooks(data);
   }, []);
 
