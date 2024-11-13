@@ -1,4 +1,5 @@
 import ReadingBooks from "./ReadingBooks/ReadingBooks";
+import WhishlistBooks from "./WhishlistBooks/WhishlistBooks";
 
 const ListedBooks = () => {
   return (
@@ -10,6 +11,7 @@ const ListedBooks = () => {
           role="tab"
           className="tab"
           aria-label="Reading Books"
+          defaultChecked
         />
         <div
           role="tabpanel"
@@ -24,13 +26,12 @@ const ListedBooks = () => {
           role="tab"
           className="tab"
           aria-label="Whislist Books"
-          defaultChecked
         />
         <div
           role="tabpanel"
           className="tab-content bg-base-100 border-base-300 rounded-box p-10"
         >
-          Tab content 2
+          <WhishlistBooks></WhishlistBooks>
         </div>
       </div>
     </div>
