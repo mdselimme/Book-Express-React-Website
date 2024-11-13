@@ -1,11 +1,22 @@
-
+import { useEffect, useState } from "react";
+import { getDbData } from "../../../DbData/DbData";
+import WhislistBook from "./WhislistBook/WhislistBook";
 
 const WhishlistBooks = () => {
-    return (
-        <div>
-            <h1>Whishlist Books</h1>
-        </div>
-    );
+  const [whishListBooks, setWhisListBooks] = useState([]);
+
+  useEffect(() => {
+    const data = getDbData("read");
+    setWhisListBooks(data);
+  }, []);
+
+  return (
+    <div>
+      {whishListBooks.map((data, idx) => (
+        <WhislistBook key={idx} whislistbook={data}></WhislistBook>
+      ))}
+    </div>
+  );
 };
 
 export default WhishlistBooks;
