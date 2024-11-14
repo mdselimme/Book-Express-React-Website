@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import { IoTime } from "react-icons/io5";
+import { FaBook } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { MdOutlineAnalytics } from "react-icons/md";
 
 const ReadingBook = ({ readbook }) => {
   const {
@@ -47,11 +49,14 @@ const ReadingBook = ({ readbook }) => {
             </p>
           </div>
           <div className="flex items-center justify-between border-b">
-            <p className="text-[rgba(19,19,19,0.5)] font-medium mb-2">
+            <p className="text-[rgba(19,19,19,0.5)] font-medium mb-2 flex items-center">
+              <FaBook />
               Number of Pages :{" "}
               <strong className="text-[#010001]">{totalPages}</strong>
             </p>
-            <p className="text-[rgba(19,19,19,0.5)] font-medium mb-2">
+            <p className="text-[rgba(19,19,19,0.5)] font-medium mb-2 flex items-center">
+              {" "}
+              <MdOutlineAnalytics />
               Publisher :{" "}
               <strong className="text-[#010001]">{publisher}</strong>
             </p>
