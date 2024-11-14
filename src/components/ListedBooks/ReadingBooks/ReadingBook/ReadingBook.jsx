@@ -1,7 +1,20 @@
 import PropTypes from "prop-types";
+import { IoTime } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const ReadingBook = ({ readbook }) => {
-  const { image, bookName, author } = readbook;
+  const {
+    image,
+    bookName,
+    author,
+    tags,
+    yearOfPublishing,
+    totalPages,
+    publisher,
+    rating,
+    category,
+    bookId,
+  } = readbook;
 
   return (
     <div className="my-14">
@@ -14,9 +27,48 @@ const ReadingBook = ({ readbook }) => {
           <p className="text-xl font-medium text-[#919095] my-3">
             By : {author}
           </p>
-          <p>Click the button to listen on Spotiwhy app.</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Listen</button>
+          <div className="flex items-center justify-between">
+            <p className="flex flex-wrap text-[0.8rem] items-center">
+              {" "}
+              <strong className="font-normal">Hastags:</strong>
+              {tags?.map((tag) => (
+                <span
+                  className="mx-1 bg-[rgba(127,93,246,0.5)] py-1 px-2 rounded-2xl"
+                  key={tag}
+                >
+                  {tag}
+                </span>
+              ))}
+            </p>
+            <p className="text-[rgba(19,19,19,0.5)] font-medium mb-2 flex items-center">
+              <IoTime />
+              Year of Publishing :{" "}
+              <strong className="text-[#010001]">{yearOfPublishing}</strong>
+            </p>
+          </div>
+          <div className="flex items-center justify-between border-b">
+            <p className="text-[rgba(19,19,19,0.5)] font-medium mb-2">
+              Number of Pages :{" "}
+              <strong className="text-[#010001]">{totalPages}</strong>
+            </p>
+            <p className="text-[rgba(19,19,19,0.5)] font-medium mb-2">
+              Publisher :{" "}
+              <strong className="text-[#010001]">{publisher}</strong>
+            </p>
+          </div>
+          <div className="flex">
+            <button className="mr-5 cursor-default bg-[#ec66a07c] text-[#010001] py-2 w-auto rounded-full px-6 font-semibold">
+              Category : {category}
+            </button>
+            <button className="mr-5 cursor-default bg-[#7e5df6b2] text-[#010001] py-2 w-auto rounded-full px-6 font-semibold">
+              Rating: {rating}
+            </button>
+            <Link
+              to={`/bookdetails/${bookId}`}
+              className="mr-5 bg-[#23BE0A] text-white py-2 rounded-full px-6 font-semibold"
+            >
+              Show Details
+            </Link>
           </div>
         </div>
       </div>

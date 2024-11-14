@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { getDbData, giveMainData } from "../../../../../DbData/DbData";
 import { Slide, toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const BookDetails = () => {
   const [singleBook, setSingleBook] = useState({});
@@ -29,7 +29,7 @@ const BookDetails = () => {
   } = singleBook;
 
   const notifyToast = (val, message) => {
-    if(val){
+    if (val) {
       toast.success(`Added Succesfully ${message}`, {
         position: "top-right",
         autoClose: 2000,
@@ -40,8 +40,8 @@ const BookDetails = () => {
         progress: undefined,
         theme: "light",
         transition: Slide,
-        });
-    }else{
+      });
+    } else {
       toast.error(`Already Added ${message}`, {
         position: "top-right",
         autoClose: 2000,
@@ -52,7 +52,7 @@ const BookDetails = () => {
         progress: undefined,
         theme: "light",
         transition: Slide,
-        });
+      });
     }
   };
 
@@ -74,10 +74,9 @@ const BookDetails = () => {
     const whislistData = whisData.find((bookD) => bookD.bookId == id.bookId);
     if (bookData) {
       notifyToast(false, "reading");
-    } else if(whislistData){
+    } else if (whislistData) {
       notifyToast(false, "Whislist");
-    }
-     else {
+    } else {
       giveMainData("whislist", id);
       notifyToast(true, "Whislist");
     }
@@ -85,7 +84,6 @@ const BookDetails = () => {
 
   return (
     <div className="container shadow-2xl mb-10 mx-auto p-8">
-
       <div className="card lg:card-side bg-base-100">
         <figure className="w-1/2">
           <img
