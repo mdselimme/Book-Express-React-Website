@@ -86,11 +86,7 @@ const BookDetails = () => {
     <div className="container shadow-2xl mb-10 mx-auto p-8">
       <div className="card lg:card-side bg-base-100">
         <figure className="w-1/2">
-          <img
-            className="w-[25.5rem] h-[25.5rem] rounded-xl"
-            src={image}
-            alt="Album"
-          />
+          <img className="w-[25.5rem] rounded-xl" src={image} alt="Album" />
         </figure>
         <div className="card-body items-start text-start">
           <h2 className="text-5xl font-bold my-2 text-[#010001]">{bookName}</h2>
