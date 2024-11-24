@@ -3,7 +3,7 @@ import Book from "./Book/Book";
 
 const Books = () => {
   const [booksData, setBooksData] = useState([]);
-  const [cutBooks, setCutBooks] = useState(6);
+  const [cutBooks, setCutBooks] = useState(9);
 
   useEffect(() => {
     fetch("books.json")
