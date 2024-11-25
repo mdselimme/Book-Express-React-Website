@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-  //   const auth = getAuth(app);
+  const auth = getAuth(app);
 
   const authData = { name: "Selim" };
 
