@@ -4,7 +4,16 @@ import { useContext } from "react";
 import { AuthContext } from "../Shared/AuthProvider/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, signOutUser } = useContext(AuthContext);
+
+  const handleLogOutBtn = () => {
+    signOutUser()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error.message);
+      });
+    console.log("log out");
+  };
 
   return (
     <div className="container mx-auto py-10">
@@ -102,7 +111,10 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <Link className="bg-[#7F5DF6] text-white py-2 rounded-full px-6 font-semibold">
+            <Link
+              onClick={handleLogOutBtn}
+              className="bg-[#7F5DF6] text-white py-2 rounded-full px-6 font-semibold"
+            >
               Log Out
             </Link>
           ) : (
