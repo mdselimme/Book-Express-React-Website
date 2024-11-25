@@ -1,12 +1,27 @@
 import { Link } from "react-router-dom";
 import Header from "../../Header/Header";
+import { useContext } from "react";
+import { AuthContext } from "../../Shared/AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const SignIn = () => {
+  const { createUserByEmailAndPass, auth } = useContext(AuthContext);
+
   const handleOnSubmitRegister = (e) => {
     e.preventDefault();
-    console.log("Submit Form", e.target.email.value);
-    console.log("Submit Form", e.target.password.value);
-    console.log("Submit Form", e.target.displayname.value);
+    const name = e.target.displayname.value;
+    const email = e.target.email.value;
+    const passoword = e.target.password.value;
+    createUserByEmailAndPass(email, passoword)
+      .then((result) => {
+        updateProfile(auth.currentUser, { displayName: name }).then(() => {
+          console.log("successful");
+        });
+        const user = result.user;
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
   return (
     <div>
