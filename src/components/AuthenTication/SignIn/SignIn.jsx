@@ -83,8 +83,11 @@ const SignIn = () => {
             </button>
           </form>
           <div className="divider my-5">Already have Account ?</div>
-          <p className="text-center underline">
-            Go to <Link to={"/signin"}>Log In</Link>
+          <p className="text-center">
+            Go to{" "}
+            <Link className="underline" to={"/login"}>
+              Log In
+            </Link>
           </p>
         </div>
       </div>

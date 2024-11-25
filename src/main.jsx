@@ -10,6 +10,7 @@ import ContactUs from "./components/ContactUs/ContactUs.jsx";
 import LogIn from "./components/AuthenTication/LogIn/LogIn.jsx";
 import SignIn from "./components/AuthenTication/SignIn/SignIn.jsx";
 import BookDetails from "./components/Home/Books/Book/BookDetails/BookDetails.jsx";
+import AuthProvider from "./components/Shared/AuthProvider/AuthProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );

@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import Header from "../../Header/Header";
+import { useContext } from "react";
+import { AuthContext } from "../../Shared/AuthProvider/AuthProvider";
 
 const LogIn = () => {
+  const { authData } = useContext(AuthContext);
+
   const handleOnSubmitLogIn = (e) => {
     e.preventDefault();
+    console.log(authData);
     console.log("Submit Form", e.target.email.value);
     console.log("Submit Form", e.target.password.value);
   };
@@ -65,8 +70,11 @@ const LogIn = () => {
             </button>
           </form>
           <div className="divider my-5">No Account ?</div>
-          <p className="text-center underline">
-            Go to <Link to={"/signin"}>Register</Link>
+          <p className="text-center">
+            Go to{" "}
+            <Link className="underline" to={"/signin"}>
+              Register
+            </Link>
           </p>
         </div>
       </div>
